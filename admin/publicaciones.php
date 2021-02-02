@@ -50,8 +50,12 @@ class Publicaciones
 
     public function edit(){
         $cn = getConection();
-        $query = "INSERT INTO publicaciones ('titulo','descripcion','url_img')".
-        "VALUES('$this->titulo','$this->descripcion','$this->url_img')";
+        $query = "UPDATE publicaciones SET ".
+        "titulo = $this->titulo,".
+        "descripcion = $this->descripcion ,".
+        "url_img = $this->url_img".
+        "WHERE id = $this->id";
+        
         $result = $cn->query($query);
         $cn->close();
         return $result;

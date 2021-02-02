@@ -39,6 +39,15 @@ $publicaciones = $pub->get(3);
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+
+        <?php
+        $count = 6;
+        foreach ($publicaciones as $p) { ?>
+          <li data-target="#carouselExampleIndicators" data-slide-to="<?= $count ?>"></li>
+        <?php $count++;  } ?>
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
@@ -49,28 +58,60 @@ $publicaciones = $pub->get(3);
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('upload/fondo-1.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <h3>Second Slide</h3>
             <p>This is a description for the second slide.</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('upload/fondo-2.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <h3>Third Slide</h3>
             <p>This is a description for the third slide.</p>
           </div>
         </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+
+        <div class="carousel-item" style="background-image: url('upload/fondo-3.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item" style="background-image: url('upload/fondo-4.png')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item" style="background-image: url('upload/fondo-3.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p>
+          </div>
+        </div>
+
+      <?php foreach ($publicaciones as $publicacion) { ?>
+
+        <div class="carousel-item" style="background-image: url('<?=$publicacion["url_img"]?>')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3><?=$publicacion['titulo']?></h3>
+            <p>This is a description for the third slide.</p>
+          </div>
+        </div>
+      <?php } ?>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
     </div>
   </header>
 
@@ -120,7 +161,7 @@ $publicaciones = $pub->get(3);
     <!-- Portfolio Section -->
     <h2>Portfolio Heading</h2>
     <div class="row">
-      <?php 
+      <?php
       foreach ($publicaciones as $publicacion) { ?>
 
         <div class="col-lg-4 col-sm-6 portfolio-item">
