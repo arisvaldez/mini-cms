@@ -25,7 +25,7 @@ class Publicaciones
         if($limit){
             $query = $query." ORDER BY id DESC  LIMIT 0, $limit ";
         }
-        
+
         $result = $cn->query($query);
         $cn->close();
         return $result;
@@ -40,6 +40,15 @@ class Publicaciones
     }
 
     public function save(){
+        $cn = getConection();
+        $query = "INSERT INTO publicaciones ('titulo','descripcion','url_img')".
+        "VALUES('$this->titulo','$this->descripcion','$this->url_img')";
+        $result = $cn->query($query);
+        $cn->close();
+        return $result;
+    }
+
+    public function edit(){
         $cn = getConection();
         $query = "INSERT INTO publicaciones ('titulo','descripcion','url_img')".
         "VALUES('$this->titulo','$this->descripcion','$this->url_img')";
